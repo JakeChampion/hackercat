@@ -1,0 +1,17 @@
+# This file describes a Fastly Compute@Edge package. To learn more visit:
+# https://developer.fastly.com/reference/fastly-toml/
+
+authors = ["me@jakechampion.name"]
+description = "hn"
+language = "javascript"
+manifest_version = 2
+name = "hn"
+service_id = "5iEaCP82lCABnuGL80nbm0"
+
+[local_server]
+
+  [local_server.backends]
+
+    [local_server.backends.hn]
+      override_host = "api.hnpwa.com"
+      url = "https://api.hnpwa.com"
