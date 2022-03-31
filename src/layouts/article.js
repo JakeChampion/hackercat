@@ -71,7 +71,7 @@ export const article = (content) => html`
       }
     </style>
     <title>
-      ${content.title}
+      HN: ${content.title}
     </title>
   </head>
   <body>

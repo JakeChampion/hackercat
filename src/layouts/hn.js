@@ -54,7 +54,7 @@ export const home = (content, pageNumber) => html`
       }
     </style>
     <title>
-      HN Page ${pageNumber}
+      HN: Page ${pageNumber}
     </title>
   </head>
   <body>
