@@ -9,7 +9,7 @@ export async function top(request, result) {
     `https://api.hnpwa.com/v0/news/${pageNumber}.json`,
     {
       backend: "hn",
-      cacheOverride: new CacheOverride("override", { ttl: 600, swr: 600 }),
+      cacheOverride: new CacheOverride("pass"),
     }
   );
   const results = await backendResponse.json();
