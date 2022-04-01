@@ -64,6 +64,7 @@ async function top(request, result) {
   `https://api.hnpwa.com/v0/news/${pageNumber}.json`,
     {
       backend: "hn",
+      cacheOverride: new CacheOverride("override", { ttl: 600, swr: 600 }),
     }
   );
   const results = await backendResponse.json();
@@ -77,6 +78,7 @@ async function item(request, result) {
   `https://api.hnpwa.com/v0/item/${id}.json`,
     {
       backend: "hn",
+      cacheOverride: new CacheOverride("override", { ttl: 600, swr: 600 }),
     }
   );
   const results = await backendResponse.json();
