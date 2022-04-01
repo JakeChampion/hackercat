@@ -10,10 +10,8 @@ import { handlePurge } from "./handlers/handlePurge.js";
 export const allowed_methods = new Set(["GET", "HEAD", "OPTIONS", "PURGE"]);
 
 const patternsToHandlers = new Map([
-  [{ pathname: "/" }, redirectToTop],
+  [{ pathname: "(/|/top\/?)" }, redirectToTop],
   [{ pathname: "/icon.svg" }, icon],
-  [{ pathname: "/top" }, redirectToTop],
-  [{ pathname: "/top/" }, redirectToTop],
   [{ pathname: "/top/:pageNumber(\\d+)" }, top],
   [{ pathname: "/item/:id(\\d+)" }, item],
 ]);
