@@ -1,7 +1,7 @@
 import { HTMLResponse } from "@worker-tools/html";
 import { ok } from "@worker-tools/response-creators";
 
-import { article } from "../layouts/article";
+import { article } from "../layouts/article.js";
 
 export async function item(request, result) {
   const id = Number.parseInt(result.pathname.groups.id, 10);

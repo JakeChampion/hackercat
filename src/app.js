@@ -1,11 +1,11 @@
-import { URLPattern } from "./polyfill/URLPattern";
+import { URLPattern } from "./polyfill/URLPattern.js";
 import { methodNotAllowed, notFound } from "@worker-tools/response-creators";
 
-import { top } from "./handlers/top";
-import { item } from "./handlers/item";
-import { redirectToTop } from "./handlers/redirectToTop";
-import { icon } from "./handlers/icon";
-import { handlePurge } from "./handlers/handlePurge";
+import { top } from "./handlers/top.js";
+import { item } from "./handlers/item.js";
+import { redirectToTop } from "./handlers/redirectToTop.js";
+import { icon } from "./handlers/icon.js";
+import { handlePurge } from "./handlers/handlePurge.js";
 
 export const allowed_methods = new Set(["GET", "HEAD", "OPTIONS", "PURGE"]);
 

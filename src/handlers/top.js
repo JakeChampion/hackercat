@@ -1,7 +1,7 @@
 import { HTMLResponse } from "@worker-tools/html";
 import { ok } from "@worker-tools/response-creators";
 
-import { home } from "../layouts/hn";
+import { home } from "../layouts/hn.js";
 
 export async function top(request, result) {
   const pageNumber = Number.parseInt(result.pathname.groups.pageNumber, 10);
