@@ -14,7 +14,8 @@ export const home = (content, pageNumber) => html`
         line-height: 1.6;
         font-size: 18px;
         color: #444;
-        padding: 0;
+        padding: 0 1em;
+        box-sizing: border-box;
       }
       ol {
         list-style-type: none;
@@ -26,8 +27,31 @@ export const home = (content, pageNumber) => html`
         position: relative;
         display: grid;
         grid-template-columns: 0fr 1fr;
-        grid-template-areas: "header main footer";
+        grid-template-areas:
+          ". main"
+          ". footer"
+          ". .";
         gap: 1em;
+        margin-bottom: 1em;
+      }
+      li:before {
+        counter-increment: section;
+        content: counter(section);
+        font-size: 1.6em;
+        position: absolute;
+      }
+      li:after {
+        content: "";
+        background: black;
+        position: absolute;
+        bottom: 0;
+        left: 3em;
+        width: calc(100% - 3em);
+        height: 1px;
+      }
+      li > * {
+        font-weight: 200;
+        margin-left: 2em;
       }
       .title {
         grid-area: main;
@@ -40,14 +64,6 @@ export const home = (content, pageNumber) => html`
         justify-content: center;
         align-content: center;
         flex-direction: column;
-      }
-      li:before {
-        counter-increment: section;
-        content: counter(section);
-        font-size: 1.6em;
-        font-weight: 200;
-        margin-right: 1em;
-        width: 1em;
       }
       h1,h2,h3 {
         line-height: 1.2
@@ -63,11 +79,10 @@ export const home = (content, pageNumber) => html`
             return html`
             <li>
               <a class="title" href="${data.url}">${data.title}</a>
-              <br>
               <a class="comments" href="/item/${data.id}">view ${data.comments_count > 0 ? data.comments_count +' comments' : 'discussion'}</a>
             </li>`
         })}
     </ol>
-    <a href="/top/${pageNumber+1}">More</a>
+    <a href="/top/${pageNumber+1}" style="text-align: center;">More</a>
   </body>
 </html>`
