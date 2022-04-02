@@ -26,7 +26,7 @@ const comment = (content) => html`
       ${content.time_ago}</span
     >
   </summary>
-  <div>${unsafeHTML(decode(content.content))}</div>
+  <div>${unsafeHTML(content.content)}</div>
 
   <ul>
     ${content.comments.map((content) => html`<li>${comment(content)}</li>`)}
@@ -41,16 +41,26 @@ export const article = (content) => html`
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/svg+xml" href="/icon.svg">
     <style type="text/css">
+
+      * {
+        box-sizing: border-box;
+      }
       body {
+        background-color: whitesmoke;
         margin: 40px auto;
-        max-width: 650px;
+        max-width: 80ch;
         line-height: 1.6;
         font-size: 18px;
         color: #444;
         padding: 0 10px;
       }
       details {
-        content-visibility: auto;
+        background-color: whitesmoke;
+        margin: 40px auto;
+        max-width: 650px;
+        line-height: 1.6;
+        font-size: 18px;
+        color: #444;
       }
       summary {
         font-weight: bold;
@@ -68,7 +78,25 @@ export const article = (content) => html`
         list-style: none;
       }
       h1,h2,h3 {
-        line-height: 1.2
+        line-height: 1.2;
+        font-size: x-large;
+        margin: 0;
+      }
+      hr {
+        border: 0.5em solid rgba(0,0,0,.1);
+        margin: 2em 0;
+      }
+      article {
+        padding-left: 1em;
+      }
+
+      small {
+        display: block;
+        padding-top: .5em;
+      }
+      p {
+        padding-block: 0.5em;
+        margin: 0;
       }
     </style>
     <title>
@@ -76,9 +104,15 @@ export const article = (content) => html`
     </title>
   </head>
   <body>
-    <a href="/">Home</a>
-    <a href="${content.url}"><h1 class="reader-title">${content.title}</h1></a>
-    ${content.points} points by <a href="/user/${content.user}">${content.user}</a> ${content.time_ago}
+    <article>
+      <a href="${content.url}">
+        <h1>${content.title}</h1>
+        <small>${content.domain}</small>
+      </a>
+      <p>
+        ${content.points} points by <a href="/user/${content.user}">${content.user}</a> ${content.time_ago}
+      </p>
+    </article>
     <hr />
     ${unsafeHTML(decode(content.content))}
     ${content.comments.map(comment)}
