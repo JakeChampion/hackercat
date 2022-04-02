@@ -9,11 +9,11 @@ export const home = (content, pageNumber) => html`
     <link rel="icon" type="image/svg+xml" href="/icon.svg">
     <style type="text/css">
       body {
+        background-color: whitesmoke;
         margin: 40px auto;
         max-width: 650px;
         line-height: 1.6;
         font-size: 18px;
-        color: #444;
         padding: 0 1em;
         box-sizing: border-box;
       }
