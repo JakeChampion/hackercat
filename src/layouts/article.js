@@ -41,11 +41,11 @@ export const article = (content) => html`
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/svg+xml" href="/icon.svg">
     <style type="text/css">
-
       * {
         box-sizing: border-box;
       }
       body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
         background-color: whitesmoke;
         margin: 40px auto;
         max-width: 80ch;

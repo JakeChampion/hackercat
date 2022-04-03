@@ -9,6 +9,7 @@ export const home = (content, pageNumber) => html`
     <link rel="icon" type="image/svg+xml" href="/icon.svg">
     <style type="text/css">
       body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
         background-color: whitesmoke;
         margin: 40px auto;
         max-width: 650px;
