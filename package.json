@@ -8,7 +8,8 @@
 		"prebuild": "npm run prebuild:js",
 		"build": "js-compute-runtime bin/index.js bin/main.wasm",
 		"start": "fastly compute serve",
-		"lint": "eslint ."
+		"lint": "eslint .",
+		"commit": "git add . && git commit -m '🐱‍💻' && git push "
 	},
 	"devDependencies": {
 		"@fastly/js-compute": "0.2.4",
