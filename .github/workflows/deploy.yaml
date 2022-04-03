@@ -1,4 +1,7 @@
 name: Deploy Application
+
+concurrency: deploy
+
 on:
   push:
     branches: [main]
