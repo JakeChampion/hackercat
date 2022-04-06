@@ -15,7 +15,7 @@
 		"@fastly/js-compute": "0.2.4",
 		"@worker-tools/html": "^2.0.0-pre.4",
 		"@worker-tools/response-creators": "^1.0.8",
-		"esbuild": "^0.14.31",
+		"esbuild": "^0.14.32",
 		"eslint": "^8.12.0",
 		"html-entities": "^2.3.3"
 	}
