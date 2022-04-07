@@ -6,6 +6,7 @@ import { item } from "./handlers/item.js";
 import { redirectToTop } from "./handlers/redirectToTop.js";
 import { icon } from "./handlers/icon.js";
 import { handlePurge } from "./handlers/handlePurge.js";
+import { user } from "./handlers/user.js";
 
 export const allowed_methods = new Set(["GET", "HEAD", "OPTIONS", "PURGE"]);
 
@@ -14,6 +15,7 @@ const patternsToHandlers = new Map([
   [{ pathname: "/icon.svg" }, icon],
   [{ pathname: "/top/:pageNumber(\\d+)" }, top],
   [{ pathname: "/item/:id(\\d+)" }, item],
+  [{ pathname: "/user/:name" }, user],
 ]);
 
 export const routingMap = new Map();

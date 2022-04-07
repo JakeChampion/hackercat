@@ -1,36 +1,7 @@
 import { html, unsafeHTML } from "@worker-tools/html";
+import { decode } from "html-entities";
 
-// export interface Item {
-//     id: number;
-//     title: string;
-//     points: number | null;
-//     user: string | null;
-//     time: number;
-//     time_ago: string;
-//     content: string;
-//     deleted?: boolean;
-//     dead?: boolean;
-//     type: string;
-//     url?: string;
-//     domain?: string;
-//     comments: Item[]; // Comments are items too
-//     level: number;
-//     comments_count: number;
-//   }
-const comment = (content) => html`
-<details open id=${content.id}>
-  <summary>
-    <span><a href="/user/${content.user}">${content.user}</a> - <a href="#${content.id}">${content.time_ago}</a></span
-    >
-  </summary>
-  <div>${unsafeHTML(content.content)}</div>
-
-  <ul>
-    ${content.comments.map((content) => html`<li>${comment(content)}</li>`)}
-  </ul>
-</details>`;
-
-export const article = (content) => html`
+export const user = (content) => html`
 <!DOCTYPE html>
 <html lang="en" >
   <head>
@@ -102,16 +73,15 @@ export const article = (content) => html`
   </head>
   <body>
     <article>
-      <a href="${content.url}">
-        <h1>${content.title}</h1>
-        <small>${content.domain}</small>
-      </a>
+      <h1>${content.id}</h1>
       <p>
-        ${content.points} points by <a href="/user/${content.user}">${content.user}</a> ${content.time_ago}
+        has ${content.karma} karma and joined ${content.created}
+      </p>
+      <p>
+      <a href="https://news.ycombinator.com/submitted?id=${content.id}">submissions</a> / <a href="https://news.ycombinator.com/threads?id=${content.id}">comments</a> / <a href="https://news.ycombinator.com/favorites?id=${content.id}">favourites</a>
       </p>
     </article>
     <hr />
-    ${unsafeHTML(content.content)}
-    ${content.comments.map(comment)}
+    ${unsafeHTML(content.about)}
   </body>
 </html>`;
