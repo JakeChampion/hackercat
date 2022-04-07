@@ -1,5 +1,5 @@
 import { HTMLResponse } from "@worker-tools/html";
-import { ok } from "@worker-tools/response-creators";
+import { internalServerError, ok } from "@worker-tools/response-creators";
 
 import { home } from "../layouts/hn.js";
 
@@ -12,6 +12,9 @@ export async function top(request, result) {
       cacheOverride: new CacheOverride("pass"),
     }
   );
+  if (backendResponse.status != 200) {
+    return internalServerError('https://api.hnpwa.com is currently not responding')
+  }
   const results = await backendResponse.json();
   const body = home(results, pageNumber);
   return new HTMLResponse(body, ok());

@@ -30,17 +30,17 @@ export async function app(event) {
     // Return a 405 if request method is not one we support
     const method = request.method;
     if (!allowed_methods.has(method)) {
-      return methodNotAllowed(`${method} method not allowed`);
+      return await methodNotAllowed(`${method} method not allowed`);
     }
 
     if (request.method === "PURGE") {
-      return handlePurge(request);
+      return await handlePurge(request);
     }
 
     for (const [compiledPattern, handler] of routingMap) {
       const result = compiledPattern.exec(event.request.url);
       if (result) {
-        return handler(event.request, result);
+        return await handler(event.request, result);
       }
     }
 
