@@ -13,7 +13,7 @@ export const allowed_methods = new Set(["GET", "HEAD", "OPTIONS", "PURGE"]);
 const patternsToHandlers = new Map([
   [{ pathname: "(/|/top\/?)" }, redirectToTop],
   [{ pathname: "/icon.svg" }, icon],
-  [{ pathname: "/top/:pageNumber(\\d+)" }, top],
+  [{ pathname: "/top/:pageNumber([1]?[0-9]|20)" }, top],
   [{ pathname: "/item/:id(\\d+)" }, item],
   [{ pathname: "/user/:name" }, user],
 ]);
