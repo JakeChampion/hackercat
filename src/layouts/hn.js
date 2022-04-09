@@ -17,7 +17,6 @@ export const home = (content, pageNumber) => html`
         font-size: 18px;
         padding: 0 1em;
         box-sizing: border-box;
-        font-weight: bolder;
       }
       ol {
         list-style-type: none;
@@ -52,7 +51,6 @@ export const home = (content, pageNumber) => html`
         height: 1px;
       }
       li > * {
-        font-weight: 200;
         margin-left: 2em;
       }
       .title {
