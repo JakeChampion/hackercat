@@ -1,6 +1,6 @@
 {
 	"private": true,
-	"name": "polyfill-service",
+	"name": "hackercat",
 	"version": "1.0.0",
 	"type": "module",
 	"scripts": {
