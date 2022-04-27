@@ -15,7 +15,7 @@
 	},
 	"devDependencies": {
 		"@fastly/js-compute": "0.2.4",
-		"@worker-tools/html": "^2.0.0-pre.4",
+		"@worker-tools/html": "^2.0.0-pre.8",
 		"@worker-tools/response-creators": "^1.0.8",
 		"axios": "^0.27.1",
 		"esbuild": "^0.14.38",
