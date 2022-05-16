@@ -3,8 +3,7 @@ import { internalServerError, notFound, ok } from "@worker-tools/response-creato
 
 import { home } from "../layouts/hn.js";
 
-export async function top(request, result) {
-  const pageNumber = Number.parseInt(result.pathname.groups.pageNumber, 10);
+export async function top(pageNumber) {
   const backendResponse = await fetch(
     `https://api.hnpwa.com/v0/news/${pageNumber}.json`,
     {
@@ -13,12 +12,16 @@ export async function top(request, result) {
     }
   );
   if (backendResponse.status >= 500) {
-    return internalServerError('https://api.hnpwa.com is currently not responding')
-  }
-  const results = await backendResponse.json();
-  if (!results) {
     return notFound('No such page')
   }
-  const body = home(results, pageNumber);
-  return new HTMLResponse(body, ok());
+  try {
+    const results = await backendResponse.json();
+    if (!results || !results.length) {
+      return notFound('No such page')
+    }
+    const body = home(results, pageNumber);
+    return new HTMLResponse(body, ok());
+  } catch (error) {
+    return notFound('No such page')
+  }
 }

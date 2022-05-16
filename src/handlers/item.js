@@ -3,8 +3,7 @@ import { internalServerError, ok, notFound } from "@worker-tools/response-creato
 
 import { article } from "../layouts/article.js";
 
-export async function item(request, result) {
-  const id = Number.parseInt(result.pathname.groups.id, 10);
+export async function item(id) {
   const backendResponse = await fetch(
     `https://api.hnpwa.com/v0/item/${id}.json`,
     {
