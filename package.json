@@ -19,7 +19,7 @@
 		"@worker-tools/response-creators": "^1.0.8",
 		"axios": "^0.27.2",
 		"esbuild": "^0.14.42",
-		"eslint": "^8.16.0",
+		"eslint": "^8.17.0",
 		"hono": "^1.4.5",
 		"html-entities": "^2.3.3",
 		"mocha": "^10.0.0",
