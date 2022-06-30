@@ -18,7 +18,7 @@
 		"@worker-tools/html": "^2.0.0-pre.13",
 		"@worker-tools/response-creators": "^1.0.8",
 		"axios": "^0.27.2",
-		"esbuild": "^0.14.47",
+		"esbuild": "^0.14.48",
 		"eslint": "^8.18.0",
 		"hono": "^1.5.2",
 		"html-entities": "^2.3.3",
