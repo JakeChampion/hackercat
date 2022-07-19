@@ -101,6 +101,10 @@ export const article = (content) => html`
     </title>
   </head>
   <body>
+    <nav>
+      <a href="/">Home</a>
+    </nav>
+    <hr>
     <article>
       <a href="${content.url}">
         <h1>${content.title}</h1>
