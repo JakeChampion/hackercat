@@ -14,7 +14,7 @@
 		"test:integration": "mocha test/**/*.test.js --recursive --timeout 30000"
 	},
 	"devDependencies": {
-		"@fastly/js-compute": "0.4.0",
+		"@fastly/js-compute": "0.5.2",
 		"@worker-tools/html": "^2.0.0-pre.13",
 		"@worker-tools/response-creators": "^1.0.8",
 		"axios": "^0.27.2",
