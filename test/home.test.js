@@ -1,7 +1,3 @@
-/* eslint-env mocha */
-
-"use strict";
-
 import assert from "node:assert";
 import fetch from "./axios.js";
 

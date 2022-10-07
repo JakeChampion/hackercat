@@ -1,5 +1,5 @@
 import { HTMLResponse } from "@worker-tools/html";
-import { internalServerError, notFound, ok } from "@worker-tools/response-creators";
+import { notFound, ok } from "@worker-tools/response-creators";
 
 import { home } from "../layouts/hn.js";
 

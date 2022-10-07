@@ -1,5 +1,4 @@
 import { html, unsafeHTML } from "@worker-tools/html";
-import { decode } from "html-entities";
 
 export const user = (content) => html`
 <!DOCTYPE html>
