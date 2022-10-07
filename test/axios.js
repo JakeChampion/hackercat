@@ -1,13 +1,10 @@
 "use strict";
 
 import process from "process";
-import axios from "axios";
 
-export default axios.create({
-    baseURL: process.env.HOST || "http://localhost:7676",
-    maxRedirects: 0,
-	decompress: false,
-    validateStatus: function (status) {
-        return status >= 200 && status < 599;
-    },
-});
+const nativeFetch = globalThis.fetch;
+const base = process.env.HOST || "http://127.0.0.1:7676"
+
+export default function fetch(path) {
+    return nativeFetch(base + path, {redirect: 'manual'})
+};
