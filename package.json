@@ -19,7 +19,7 @@
 		"@worker-tools/response-creators": "^1.0.8",
 		"esbuild": "^0.15.14",
 		"eslint": "^8.27.0",
-		"hono": "^2.5.1",
+		"hono": "^2.5.2",
 		"mocha": "^10.1.0",
 		"start-server-and-test": "^1.14.0"
 	},
