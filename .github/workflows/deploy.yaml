@@ -10,12 +10,12 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
 
     - name: Install project dependencies
       run: npm ci
 
     - name: Deploy to Compute@Edge
-      uses: fastly/compute-actions@v1
+      uses: fastly/compute-actions@v5
       env:
         FASTLY_API_TOKEN: ${{ secrets.FASTLY_API_TOKEN }}
