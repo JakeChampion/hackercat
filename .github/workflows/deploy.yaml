@@ -11,14 +11,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-
-    - name: Install project dependencies
-      run: npm ci
-        
+    # Download Yarn and the Fastly CLI and install the project dependencies
+    - uses: actions/setup-node@v3
+      with:
+        cache: 'yarn'
     - name: Set up Fastly CLI
-      uses: fastly/compute-actions/setup@v5
+      uses: fastly/compute-actions/setup@v4
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         cli_version: '10.2.0'
+    - run: yarn
 
     - run: fastly compute publish --verbose -i --service-id 35VfiGSqO4qK9yI0i7ZUyC --token ${{ secrets.FASTLY_API_TOKEN }}
