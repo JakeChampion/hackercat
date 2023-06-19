@@ -37,6 +37,6 @@ describe("GET /top/100", function() {
 	it("responds with a 404 status", async () => {
 		const response = await fetch(`/top/100`);
 		assert.equal(response.status, 404);
-		assert.equal(response.headers.get("content-type"), "text/plain; charset=UTF-8");
+		assert.equal(response.headers.get("content-type"), "text/plain;charset=UTF-8");
 	});
 });

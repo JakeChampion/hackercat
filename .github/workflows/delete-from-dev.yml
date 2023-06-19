@@ -1,0 +1,32 @@
+name: Delete Fastly PR application
+
+# only trigger on pull request closed events
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  delete:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v3
+      # Download Yarn and the Fastly CLI and install the project dependencies
+      - uses: actions/setup-node@v3
+        with:
+          cache: 'yarn'
+      - name: Set up Fastly CLI
+        uses: fastly/compute-actions/setup@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          cli_version: '10.2.0'
+      - run: yarn
+
+      # Create a new Fastly Service name with the PR number appended
+      - name: Set service-name
+        id: service-name
+        run: echo "SERVICE_NAME=fastly-compute-application-dev-pr-${{ github.event.number }}" >> "$GITHUB_OUTPUT"
+      # Delete the Fastly Service
+      - run: fastly service delete --quiet --service-name ${{ steps.service-name.outputs.SERVICE_NAME }} --force --token ${{ secrets.FASTLY_API_TOKEN }} || true
