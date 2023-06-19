@@ -6,7 +6,7 @@ description = "hn"
 language = "javascript"
 manifest_version = 2
 name = "hn"
-service_id = "35VfiGSqO4qK9yI0i7ZUyC"
+service_id = ""
 
 [scripts]
   build = "npm run build"
