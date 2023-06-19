@@ -1,0 +1,44 @@
+name: Deploy to new Fastly Compute Service and test
+concurrency: dev_environment
+on:
+  pull_request:
+jobs:
+  deploy-and-test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v3
+
+      # Download Yarn and the Fastly CLI and install the project dependencies
+      - uses: actions/setup-node@v3
+        with:
+          cache: 'yarn'
+      - name: Set up Fastly CLI
+        uses: fastly/compute-actions/setup@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          cli_version: '10.2.0'
+      - run: yarn
+
+      # Create a new Fastly Service name with the PR number appended
+      - name: Set service-name
+        id: service-name
+        run: echo "SERVICE_NAME=hn-${{ github.event.number }}" >> "$GITHUB_OUTPUT"
+      # Add the service name to fastly.toml so that the Fstly CLI is aware of the new name
+      - run: sed -i 's/^name = ".*"/name = "${{ steps.service-name.outputs.SERVICE_NAME }}"/g' fastly.toml
+      # Deploy to Fastly and let Fastly choose a subdomain of edgecompute.app to attach to the service
+      - run: fastly compute publish --verbose -i --token ${{ secrets.FASTLY_API_KEY }}
+      # Retrieve the newly created domain for the service and add it to the pull-request summary
+      - run: fastly domain list --quiet --version latest --json --token ${{ secrets.FASTLY_API_KEY }} | jq -r '.[0].Name'
+      - name: Set domain
+        id: domain
+        run: echo "DOMAIN=$(fastly domain list --quiet --version latest --json --token ${{ secrets.FASTLY_API_KEY }} | jq -r '.[0].Name')" >> "$GITHUB_OUTPUT"
+      - name: Add domain to summary
+        run: echo 'This pull-request has been deployed to Fastly and is available at <https://${{ steps.domain.outputs.DOMAIN }}> 🚀' >> $GITHUB_STEP_SUMMARY
+
+      # Run our integration tests against the newly deployed service
+      - run: npm run test:integration
+        env:
+          HOST: "https://${{ steps.domain.outputs.DOMAIN }}"
