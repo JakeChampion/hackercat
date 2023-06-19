@@ -18,3 +18,11 @@ service_id = ""
     [local_server.backends.hn]
       override_host = "api.hnpwa.com"
       url = "https://api.hnpwa.com"
+
+[setup]
+
+  [setup.backends]
+
+    [setup.backends.hn]
+      address = "api.hnpwa.com"
+      port = 443

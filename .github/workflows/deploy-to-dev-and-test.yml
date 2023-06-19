@@ -25,21 +25,21 @@ jobs:
       # Create a new Fastly Service name with the PR number appended
       - name: Set service-name
         id: service-name
-        run: echo "SERVICE_NAME=hn-${{ github.event.number }}" >> "$GITHUB_OUTPUT"
+        run: echo "SERVICE_NAME=$(yq '.name' fastly.toml)-${{ github.event.number }}" >> "$GITHUB_OUTPUT"
       # Add the service name to fastly.toml so that the Fstly CLI is aware of the new name
       - run: sed -i 's/^name = ".*"/name = "${{ steps.service-name.outputs.SERVICE_NAME }}"/g' fastly.toml
       # Deploy to Fastly and let Fastly choose a subdomain of edgecompute.app to attach to the service
       - run: |
-          if fastly service describe --service-name="${{ steps.service-name.outputs.SERVICE_NAME }}" --token ${{ secrets.FASTLY_API_TOKEN }} ; then
-            fastly compute publish --token ${{ secrets.FASTLY_API_TOKEN }} --service-id="$(fastly service describe --service-name="${{ steps.service-name.outputs.SERVICE_NAME }}" --token ${{ secrets.FASTLY_API_TOKEN }} --json | jq -r '.ID')"
+          if fastly service describe --quiet --service-name="${{ steps.service-name.outputs.SERVICE_NAME }}" --token ${{ secrets.FASTLY_API_TOKEN }} ; then
+            FASTLY_SERVICE_ID="$(fastly service describe --service-name="${{ steps.service-name.outputs.SERVICE_NAME }}" --token ${{ secrets.FASTLY_API_TOKEN }} --quiet --json | jq -r '.ID')" fastly compute publish --verbose --token ${{ secrets.FASTLY_API_TOKEN }}
           else
             fastly compute publish --verbose -i --token ${{ secrets.FASTLY_API_TOKEN }}
           fi
       # Retrieve the newly created domain for the service and add it to the pull-request summary
-      - run: fastly domain list --quiet --version latest --json --token ${{ secrets.FASTLY_API_TOKEN }} | jq -r '.[0].Name'
+      - run: fastly domain list --quiet --version latest --json --service-name="${{ steps.service-name.outputs.SERVICE_NAME }}" --token ${{ secrets.FASTLY_API_TOKEN }} | jq -r '.[0].Name'
       - name: Set domain
         id: domain
-        run: echo "DOMAIN=$(fastly domain list --quiet --version latest --json --token ${{ secrets.FASTLY_API_TOKEN }} | jq -r '.[0].Name')" >> "$GITHUB_OUTPUT"
+        run: echo "DOMAIN=$(fastly domain list --quiet --version latest --json --service-name="${{ steps.service-name.outputs.SERVICE_NAME }}" --token ${{ secrets.FASTLY_API_TOKEN }} | jq -r '.[0].Name')" >> "$GITHUB_OUTPUT"
       - name: Add domain to summary
         run: echo 'This pull-request has been deployed to Fastly and is available at <https://${{ steps.domain.outputs.DOMAIN }}> 🚀' >> $GITHUB_STEP_SUMMARY
 
