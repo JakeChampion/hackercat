@@ -29,4 +29,4 @@ jobs:
         id: service-name
         run: echo "SERVICE_NAME=fastly-compute-application-dev-pr-${{ github.event.number }}" >> "$GITHUB_OUTPUT"
       # Delete the Fastly Service
-      - run: fastly service delete --quiet --service-name ${{ steps.service-name.outputs.SERVICE_NAME }} --force --token ${{ secrets.FASTLY_API_KEY }} || true
+      - run: fastly service delete --quiet --service-name ${{ steps.service-name.outputs.SERVICE_NAME }} --force --token ${{ secrets.FASTLY_API_TOKEN }} || true
