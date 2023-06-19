@@ -14,11 +14,6 @@ jobs:
 
     - name: Install project dependencies
       run: npm ci
-
-    - name: Deploy to Compute@Edge
-      uses: fastly/compute-actions@v5
-      env:
-        FASTLY_API_TOKEN: ${{ secrets.FASTLY_API_TOKEN }}
         
     - name: Set up Fastly CLI
       uses: fastly/compute-actions/setup@v5
