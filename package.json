@@ -4,9 +4,7 @@
 	"version": "1.0.0",
 	"type": "module",
 	"scripts": {
-		"prebuild:js": "esbuild src/index.js --target=es2020 --platform=browser --bundle --outfile=bin/index.js",
-		"prebuild": "npm run prebuild:js",
-		"build": "js-compute-runtime bin/index.js bin/main.wasm",
+		"build": "js-compute-runtime src/index.js bin/main.wasm",
 		"start": "fastly compute serve",
 		"lint": "eslint .",
 		"commit": "git add . && git commit -m '🐱‍💻' && git push",
@@ -17,7 +15,6 @@
 		"@fastly/js-compute": "2.4.0",
 		"@worker-tools/html": "^2.0.0-pre.13",
 		"@worker-tools/response-creators": "^1.0.8",
-		"esbuild": "^0.18.11",
 		"eslint": "^8.44.0",
 		"hono": "^3.2.7",
 		"mocha": "^10.2.0",
