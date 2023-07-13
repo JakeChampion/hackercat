@@ -22,7 +22,9 @@ const app = new Hono()
 app.use('*', logger())
 app.use('*', compress)
 app.use('*', serverTiming)
-app.get(['/', '/top', '/top/'], redirectToTop)
+app.get('/', redirectToTop)
+app.get('/top', redirectToTop)
+app.get('/top/', redirectToTop)
 app.get('/icon.svg', icon)
 app.get('/top/:pageNumber{[1]?[0-9]|20}', (c) => {
   const pageNumber = Number.parseInt(c.req.param('pageNumber'), 10);
