@@ -7,8 +7,6 @@ import { redirectToTop } from './handlers/redirectToTop';
 import { top } from './handlers/top';
 import { user } from './handlers/user';
 
-console.trace = console.log
-
 async function compress (ctx, next) {
   await next()
   if (ctx.res.body) {
