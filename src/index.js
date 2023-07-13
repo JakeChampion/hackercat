@@ -16,9 +16,15 @@ async function compress (ctx, next) {
   }
 }
 
+async function serverTiming (ctx, next) {
+  await next()
+  ctx.header("x-trailer-server-timing", "rtt,timestamp,retrans")
+}
+
 const app = new Hono()
 app.use('*', logger())
 app.use('*', compress)
+app.use('*', serverTiming)
 app.get('/', redirectToTop)
 app.get('/top', redirectToTop)
 app.get('/top/', redirectToTop)
