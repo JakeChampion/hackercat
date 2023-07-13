@@ -1,4 +1,3 @@
-// src/index.ts
 import { Hono } from 'hono'
 import { logger } from "hono/logger";
 import { icon } from './handlers/icon';
