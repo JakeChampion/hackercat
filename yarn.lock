@@ -214,10 +214,10 @@
   resolved "https://registry.yarnpkg.com/@eslint/js/-/js-8.47.0.tgz#5478fdf443ff8158f9de171c704ae45308696c7d"
   integrity sha512-P6omY1zv5MItm93kLM8s2vr1HICJH8v0dvddDhysbIuZ+vcjOHg5Zbkf1mTkcmi2JA9oBG2anOkRnW8WJTS8Og==
 
-"@fastly/js-compute@3.2.1":
-  version "3.2.1"
-  resolved "https://registry.yarnpkg.com/@fastly/js-compute/-/js-compute-3.2.1.tgz#cf0fe858adc5ef59b2888a1f30991fc9d4bbda08"
-  integrity sha512-izZma7L2Uowq726RYD/pYpLg/85Vi7WxTRHPk+TT+chFq6Qab+L7EaitwvGi/gHXweGRRi5iG7OGX7zus63kUQ==
+"@fastly/js-compute@3.3.0":
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/@fastly/js-compute/-/js-compute-3.3.0.tgz#e42da201cd1af971f1b632c8a8bc688af2f6974d"
+  integrity sha512-kFonE2pDt6SloppCelgOvTb3LrVemzZgwqu6O+g8i2dZ9OW4qf4h8ElB1e/Mc+4lgBPsWwMKJnW3SxLK3Rgrkw==
   dependencies:
     "@bytecodealliance/jco" "^0.10.0"
     "@bytecodealliance/wizer" "^3.0.1"
@@ -999,10 +999,10 @@ he@1.2.0:
   resolved "https://registry.yarnpkg.com/he/-/he-1.2.0.tgz#84ae65fa7eafb165fddb61566ae14baf05664f0f"
   integrity sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw==
 
-hono@^3.5.0:
-  version "3.5.0"
-  resolved "https://registry.yarnpkg.com/hono/-/hono-3.5.0.tgz#8bba91b7d1a4f26db22cd1b013032b8a38f97bab"
-  integrity sha512-0eJT6F+TRovENdANDubzri3c1oVEjbTgrQvXrcUKjFV6ZElNWNSrrHZIQE5CPwRTddsUdPjkgguuLYw90npC+w==
+hono@^3.5.1:
+  version "3.5.1"
+  resolved "https://registry.yarnpkg.com/hono/-/hono-3.5.1.tgz#eea7ba4b071507146e73efc29037e4da4cc96a81"
+  integrity sha512-L31KJg1Qu1ZHYKlpHYymqyDPR9U5SOy+X6c6+HQxBOGMGrJFawd5BvfcP+0rrGcw1bN5xk61+k3oKW4jFWyUkw==
 
 human-signals@^2.1.0:
   version "2.1.0"

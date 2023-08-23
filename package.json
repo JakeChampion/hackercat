@@ -4,7 +4,7 @@
 	"version": "1.0.0",
 	"type": "module",
 	"scripts": {
-		"build": "js-compute-runtime src/index.js bin/main.wasm",
+		"build": "js-compute-runtime --enable-pbl src/index.js bin/main.wasm",
 		"start": "fastly compute serve",
 		"lint": "eslint .",
 		"commit": "git add . && git commit -m '🐱‍💻' && git push",
@@ -12,11 +12,11 @@
 		"test:integration": "mocha test/**/*.test.js --recursive --timeout 30000 --exit"
 	},
 	"devDependencies": {
-		"@fastly/js-compute": "3.2.1",
+		"@fastly/js-compute": "3.3.0",
 		"@worker-tools/html": "^2.0.0-pre.13",
 		"@worker-tools/response-creators": "^1.0.8",
 		"eslint": "^8.47.0",
-		"hono": "^3.5.0",
+		"hono": "^3.5.1",
 		"mocha": "^10.2.0",
 		"start-server-and-test": "^2.0.0"
 	},
