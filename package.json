@@ -16,7 +16,7 @@
 		"@worker-tools/html": "^2.0.0-pre.13",
 		"@worker-tools/response-creators": "^1.0.8",
 		"eslint": "^8.47.0",
-		"hono": "^3.5.1",
+		"hono": "^3.5.4",
 		"mocha": "^10.2.0",
 		"start-server-and-test": "^2.0.0"
 	},
