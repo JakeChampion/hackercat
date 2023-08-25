@@ -12,7 +12,7 @@
 		"test:integration": "mocha test/**/*.test.js --recursive --timeout 30000 --exit"
 	},
 	"devDependencies": {
-		"@fastly/js-compute": "3.3.0",
+		"@fastly/js-compute": "3.3.1",
 		"@worker-tools/html": "^2.0.0-pre.13",
 		"@worker-tools/response-creators": "^1.0.8",
 		"eslint": "^8.47.0",
