@@ -1,4 +1,4 @@
-import { Hono } from 'hono'
+import { Hono } from 'hono/quick'
 import { logger } from "hono/logger";
 import { icon } from './handlers/icon';
 import { item } from './handlers/item';
