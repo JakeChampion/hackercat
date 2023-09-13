@@ -214,10 +214,10 @@
   resolved "https://registry.yarnpkg.com/@eslint/js/-/js-8.49.0.tgz#86f79756004a97fa4df866835093f1df3d03c333"
   integrity sha512-1S8uAY/MTJqVx0SC4epBq+N2yhuwtNwLbJYNZyhL2pO1ZVKn5HFXav5T41Ryzy9K9V7ZId2JB2oy/W4aCd9/2w==
 
-"@fastly/js-compute@3.3.4":
-  version "3.3.4"
-  resolved "https://registry.yarnpkg.com/@fastly/js-compute/-/js-compute-3.3.4.tgz#283f02ddc1476befc813013f28bace2915b0718c"
-  integrity sha512-i3wyaOytFoOLDHR3RRlBjZmnr4q/REvgh2ZzRsjtWTVskfQH/+zuQnYJWLqTyR4iA3Rjd/lV3yVXx0lvnWG27w==
+"@fastly/js-compute@3.4.0":
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/@fastly/js-compute/-/js-compute-3.4.0.tgz#39c9bebdda1c84473f77e09dcb306873f4714fe8"
+  integrity sha512-YpwyDebWKV0CWlmG4GrILw7qreErpyls7H71mofQmZaeoL2RkXeDZnCVyG4gOc7lW2rUtYd9TWis8Ias/uJB+A==
   dependencies:
     "@bytecodealliance/jco" "^0.10.0"
     "@bytecodealliance/wizer" "^3.0.1"
