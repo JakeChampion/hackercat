@@ -18,7 +18,7 @@
 		"eslint": "^8.49.0",
 		"hono": "^3.7.0",
 		"mocha": "^10.2.0",
-		"start-server-and-test": "^2.0.0"
+		"start-server-and-test": "^2.0.1"
 	},
 	"volta": {
 		"node": "18.10.0"
