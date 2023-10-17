@@ -999,10 +999,10 @@ he@1.2.0:
   resolved "https://registry.yarnpkg.com/he/-/he-1.2.0.tgz#84ae65fa7eafb165fddb61566ae14baf05664f0f"
   integrity sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw==
 
-hono@^3.7.6:
-  version "3.7.6"
-  resolved "https://registry.yarnpkg.com/hono/-/hono-3.7.6.tgz#91ef6667add22c1ae36f85be857af330474f0391"
-  integrity sha512-nuLNH9+nV6ojXK6b9I0RGZgdMuLTOXeQPs6xsIw/G5iyT8j8m7Nnx8pTxQprmSmCaEYIPv91rCcq45PQNfW68A==
+hono@^3.8.0:
+  version "3.8.0"
+  resolved "https://registry.yarnpkg.com/hono/-/hono-3.8.0.tgz#967456f66b88269e857eca7eef5ae8ae32d04656"
+  integrity sha512-lTkcFzm9abmsYiaX82r707kG7Qo9y/nSuO75VWaI6xRK46yxylMUG10Njy6SS5CcLRAg+0mw8NvPaMPbgV17Gg==
 
 human-signals@^2.1.0:
   version "2.1.0"
