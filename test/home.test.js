@@ -29,7 +29,7 @@ describe("GET /top/1", function() {
 	it("responds with a 200 status", async () => {
 		const response = await fetch(`/top/1`);
 		assert.equal(response.status, 200);
-		assert.equal(response.headers.get("content-type"), "text/html; charset=UTF-8");
+		assert.equal(response.headers.get("content-type"), "text/html;charset=UTF-8");
 	});
 });
 
