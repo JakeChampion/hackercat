@@ -15,7 +15,7 @@
 		"@fastly/js-compute": "3.7.3",
 		"@worker-tools/html": "^2.0.0-pre.13",
 		"@worker-tools/response-creators": "^1.0.8",
-		"eslint": "^8.55.0",
+		"eslint": "^8.56.0",
 		"hono": "^3.11.11",
 		"mocha": "^10.2.0",
 		"start-server-and-test": "^2.0.3"
